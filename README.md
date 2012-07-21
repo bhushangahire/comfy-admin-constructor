@@ -2,6 +2,8 @@
 
 **ComfyAdminConstructor** allows you to quickly and easily build basic admin interfaces in [ComfortableMexicanSofa](https://github.com/comfy/comfortable-mexican-sofa).
 
+**NOTE:** It's worth mentioning that this is my first attempt at a proper gem for public consumption. It is under active development and may change drastically from time to time.
+
 Installation
 ------------
 
