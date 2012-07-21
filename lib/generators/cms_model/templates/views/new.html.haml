@@ -1,4 +1,0 @@
-%h1 New <%= class_name.underscore.humanize.downcase.titleize.pluralize %>
-
-= comfy_form_for(@<%= class_name.underscore.downcase %>, :as => :<%= class_name.underscore.downcase %>, :url => {:action => :create}) do |form|
-  = render :partial => "form", :object => form
