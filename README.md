@@ -1,29 +1,28 @@
-# Comfy::Admin::Constructor
+# ComfyAdminConstructor
 
-TODO: Write a gem description
+ComfyAdminConstructor allows you to quickly and easily build basic admin interfaces in [ComfortableMexicanSofa](https://github.com/comfy/comfortable-mexican-sofa).
 
-## Installation
+Installation
+------------
 
-Add this line to your application's Gemfile:
+Add gem definition to your Gemfile:
 
-    gem 'comfy-admin-constructor'
+  gem 'comfy-admin-constructor'
 
-And then execute:
+Then, from the Rails project's root run:
 
-    $ bundle
+  bundle install
 
-Or install it yourself as:
+Requirements
+------------
 
-    $ gem install comfy-admin-constructor
+There are plans to make CAC more flexible in the future, but right now it assumes a few things about your CMS install:
 
-## Usage
+* You access CMS at /admin and not /cms-admin
+* You use HAML and SASS
+* You don't store your models in sub-directories
+* Your admin controllers and views are stored in controllers/admin and views/admin, respectively
 
-TODO: Write usage instructions here
+Quick Start Guide
+-----------------
 
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Added some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
