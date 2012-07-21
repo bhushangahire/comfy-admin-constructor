@@ -1,6 +1,6 @@
 # ComfyAdminConstructor
 
-ComfyAdminConstructor allows you to quickly and easily build basic admin interfaces in [ComfortableMexicanSofa](https://github.com/comfy/comfortable-mexican-sofa).
+*ComfyAdminConstructor* allows you to quickly and easily build basic admin interfaces in [ComfortableMexicanSofa](https://github.com/comfy/comfortable-mexican-sofa).
 
 Installation
 ------------
