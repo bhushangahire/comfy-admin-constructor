@@ -54,9 +54,9 @@ class CmsAdminGenerator < Rails::Generators::Base
     }
   end
 
-  def add_navigation
+  def create_nav_template_if_needed
     if !File.exist? destination_path("app/views/admin/_navigation.html.haml")
-      template "partials/_navgation.html.haml", "app/views/admin/_navigation.html.haml"
+      template "partials/_navigation.html.haml", "app/views/admin/_navigation.html.haml"
     end
   end
 
