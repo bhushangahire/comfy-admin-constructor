@@ -112,4 +112,8 @@ class CmsAdminGenerator < Rails::Generators::Base
     ERB.new(File.read(find_in_source_paths(relative_path)), nil, '-').result(binding)
   end
 
+  def destination_path(path)
+    File.join(destination_root, path)
+  end
+
 end
