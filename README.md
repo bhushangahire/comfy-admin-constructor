@@ -73,5 +73,6 @@ That's it! CAC gives you all the basics. If you need to do something a little mo
 
 ---
 
-ComfortableMexicanSofa is released under the [MIT license](https://github.com/bgilham/comfy-admin-constructor/blob/master/LICENSE) 
+ComfortableMexicanSofa is released under the [MIT license](https://github.com/bgilham/comfy-admin-constructor/blob/master/LICENSE)
+
 Copyright 2012 Brian Gilham, [The Working Group Inc](http://www.twg.ca)
