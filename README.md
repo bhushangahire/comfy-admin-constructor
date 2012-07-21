@@ -7,11 +7,11 @@ Installation
 
 Add gem definition to your Gemfile:
 
-  gem 'comfy-admin-constructor'
+      gem 'comfy-admin-constructor'
 
 Then, from the Rails project's root run:
 
-  bundle install
+      bundle install
 
 Requirements
 ------------
