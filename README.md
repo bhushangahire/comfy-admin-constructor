@@ -62,9 +62,9 @@ CAC will automatically generate a bunch of files for us:
 
 So, what happened there?
 
-* The EventListing model was generated, with basic :presence => :true validation for all attributes
-* A migration was generated to create the necessary table for our database (Note: Migrations are never run automatically. That's on you.)
-* A controller, complete with ActiveRecord rescues, flash messages for success/failure messages, and more.
+* The EventListing model was generated, with basic ***:presence => :true*** validation for all attributes
+* A migration was generated to create the necessary table for our database (Note: Migrations are ***never*** run automatically. That's on you.)
+* A controller, complete with ActiveRecord rescues, success/failure flash messages, and more.
 * Views for all the operations we'll need, along with a form.
 * Added a new route
 * Appended a new link to the navigation template
