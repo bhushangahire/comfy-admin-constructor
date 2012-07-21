@@ -1,0 +1,4 @@
+%h1 Edit <%= class_name.underscore.humanize.downcase.titleize %>
+
+= comfy_form_for(@<%= class_name.underscore.downcase %>, :as => :<%= class_name.underscore.downcase %>, :url => { :action => :update }) do |form|
+  = render(:partial => 'form', :object => form)

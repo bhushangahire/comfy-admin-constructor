@@ -1,0 +1,8 @@
+Description:
+    Create a new CMS admin section
+
+Example:
+    rails generate cms_model Thing attribute:type attribute:type attribute:type
+
+    This will create:
+        what/will/it/create **TODO**
