@@ -61,7 +61,7 @@ class CmsAdminGenerator < Rails::Generators::Base
   end
 
   def append_to_nav_template
-    File.open(destination_path("app/views/admin/_navigation.html.haml", "a")) {|f| f.write("%li= link_to 'Blah', '#'\n")}
+    File.open(destination_path("app/views/admin/_navigation.html.haml", "a")) {|f| f.write("\n%li= link_to 'Blah', '#'\n")}
   end
 
   private
