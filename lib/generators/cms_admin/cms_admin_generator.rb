@@ -54,6 +54,12 @@ class CmsAdminGenerator < Rails::Generators::Base
     }
   end
 
+  def add_navigation
+    if !File.exist? destination_path("app/views/admin/_navigation.html.haml")
+      template "partials/_navgation.html.haml", "app/views/admin/_navigation.html.haml"
+    end
+  end
+
   private
 
   def model_path
