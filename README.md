@@ -68,3 +68,10 @@ So, what happened there?
 * Views for all the operations we'll need, along with a form.
 * Added a new route
 * Appended a new link to the navigation template
+
+That's it! CAC gives you all the basics. If you need to do something a little more complicated, it's easy to make any changes you like.
+
+---
+
+ComfortableMexicanSofa is released under the [MIT license](https://github.com/bgilham/comfy-admin-constructor/blob/master/LICENSE) 
+Copyright 2012 Brian Gilham, [The Working Group Inc](http://www.twg.ca)
