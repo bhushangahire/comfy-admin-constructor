@@ -24,7 +24,7 @@ There are plans to make CAC more flexible in the future, but right now it assume
 * You use HAML in your views
 * You don't store your models in sub-directories
 * Your admin controllers and views are stored in **controllers/admin** and **views/admin**, respectively
-* Your CMS initializer will need to specify a custom navigation template at **views/admin/_navigation.html.haml***
+* Your CMS initializer will need to specify a custom navigation template at **views/admin/_navigation.html.haml**
 
 Planned Features
 ----------------
