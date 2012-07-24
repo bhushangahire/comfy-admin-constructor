@@ -37,12 +37,12 @@ class CmsAdminGenerator < Rails::Generators::Base
   end
 
   def create_form
-    template "views/_form.html.haml", "app/views/admin/#{plural_name}/_form.html.haml"
+    template "views/_form#{template_file_type}", "app/views/admin/#{plural_name}/_form#{template_file_type}"
   end
 
   def create_views
     %w[edit index new].each do |action|
-      template "views/#{action}.html.haml", "app/views/admin/#{plural_name}/#{action}.html.haml"
+      template "views/#{action}#{template_file_type}", "app/views/admin/#{plural_name}/#{action}#{template_file_type}"
     end
   end
 
@@ -55,13 +55,13 @@ class CmsAdminGenerator < Rails::Generators::Base
   end
 
   def create_nav_template_if_needed
-    if !File.exist? destination_path("app/views/admin/_navigation.html.haml")
-      template "partials/_navigation.html.haml", "app/views/admin/_navigation.html.haml"
+    if !File.exist? destination_path("app/views/admin/_navigation#{template_file_type}")
+      template "partials/_navigation#{template_file_type}", "app/views/admin/_navigation#{template_file_type}"
     end
   end
 
   def append_to_nav_template
-    File.open(destination_path("app/views/admin/_navigation.html.haml"), "a") {|f| f.write("\n%li= link_to '#{class_name.underscore.humanize.downcase.titleize.pluralize}', admin_#{class_name.underscore.downcase.pluralize}_path\n")}
+    File.open(destination_path("app/views/admin/_navigation#{template_file_type}"), "a") {|f| f.write("\n%li= link_to '#{class_name.underscore.humanize.downcase.titleize.pluralize}', admin_#{class_name.underscore.downcase.pluralize}_path\n")}
   end
 
   private
@@ -118,6 +118,18 @@ class CmsAdminGenerator < Rails::Generators::Base
 
   def destination_path(path)
     File.join(destination_root, path)
+  end
+
+  def haml_present?
+    defined?(Haml)
+  end
+
+  def template_file_type
+    if haml_present?
+      ".html.haml"
+    else
+      ".html.erb"
+    end
   end
 
 end
