@@ -1,0 +1,30 @@
+<%%= link_to "New <%= class_name.underscore.humanize.downcase.titleize %>", new_admin_<%= class_name.underscore.downcase %>_path, :class => 'big button' %>
+
+<h1><%= class_name.underscore.humanize.downcase.titleize.pluralize %></h1>
+
+<ul class="list">
+  <%%- if @<%= class_name.underscore.downcase.pluralize %>.empty? %>
+    <li>
+      <div class="item">
+        <div class="sublabel">
+          No <%= class_name.underscore.humanize.downcase.titleize.pluralize %> Found
+        </div>
+      </div>
+    </li>
+  <%%- else %>
+    <%%- @<%= class_name.underscore.downcase.pluralize %>.each do |<%= class_name.underscore.downcase %>| %>
+      <li>
+        <div class="item">
+          <div class="icon"></div>
+          <div class="action_links">
+            <%%= link_to "Edit", edit_admin_<%= class_name.underscore.downcase %>_path(<%= class_name.underscore.downcase %>) %>
+            <%%= link_to "Delete", admin_<%= class_name.underscore.downcase %>_path(<%= class_name.underscore.downcase %>), :method => :delete, :data => { :confirm => 'Are you sure?' } %>
+          </div>
+          <div class="label">
+            <%%= <%= class_name.underscore.downcase %>.<%= model_attributes.first.name %> %>
+          </div>
+        </div>
+      </li>
+    <%%- end %>
+  <%%- end %>
+</ul>

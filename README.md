@@ -2,8 +2,6 @@
 
 **ComfyAdminConstructor** allows you to quickly and easily build basic admin interfaces in [ComfortableMexicanSofa](https://github.com/comfy/comfortable-mexican-sofa).
 
-**NOTE:** It's worth mentioning that this is my first attempt at a proper gem for public consumption. It is under active development and may change drastically from time to time.
-
 Installation
 ------------
 
@@ -21,10 +19,9 @@ Requirements
 There are plans to make CAC more flexible in the future, but right now it assumes a few things about your CMS install:
 
 * You access CMS at **/admin** and not /cms-admin
-* You use HAML in your views
 * You don't store your models in sub-directories
 * Your admin controllers and views are stored in **controllers/admin** and **views/admin**, respectively
-* Your CMS initializer will need to specify a custom navigation template at **views/admin/_navigation.html.haml**
+* Your CMS initializer will need to specify a custom navigation template at **/admin/_navigation**
 
 Planned Features
 ----------------
@@ -67,7 +64,7 @@ So, what happened there?
 * The EventListing model was generated
 * A migration was generated to create the necessary table for our database (Note: Migrations are **never** run automatically. That's on you.)
 * A controller, complete with ActiveRecord rescues, success/failure flash messages, and more.
-* Views for all the operations we'll need, along with a form.
+* Views for all the operations we'll need, along with a form. (Uses HAML if available, ERB if not)
 * Added a new route
 * Appended a new link to the navigation template
 
