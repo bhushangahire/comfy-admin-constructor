@@ -19,7 +19,7 @@ Requirements
 There are plans to make CAC more flexible in the future, but right now it assumes a few things about your CMS install:
 
 * You don't store your models in sub-directories
-* Your CMS initializer specifies a custom navigation template at **/admin/_navigation**
+* Your CMS initializer specifies a custom navigation template at **/[your admix route prefix]/_navigation**
 
 Upcoming Features
 ----------------
