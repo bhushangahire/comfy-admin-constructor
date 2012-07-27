@@ -49,12 +49,12 @@ CAC will automatically generate a bunch of files for us:
 
       create  app/models/event_listing.rb
       create  db/migrate/20120721145844_create_event_listings.rb
-      create  app/controllers/admin/event_listings_controller.rb
-      create  app/views/admin/event_listings/_form.html.haml
-      create  app/views/admin/event_listings/edit.html.haml
-      create  app/views/admin/event_listings/index.html.haml
-      create  app/views/admin/event_listings/new.html.haml
-       route  namespace(:admin){ resources :event_listings, :except => [:show] }
+      create  app/controllers/cms-admin/event_listings_controller.rb
+      create  app/views/cms-admin/event_listings/_form.html.haml
+      create  app/views/cms-admin/event_listings/edit.html.haml
+      create  app/views/cms-admin/event_listings/index.html.haml
+      create  app/views/cms-admin/event_listings/new.html.haml
+       route  namespace(:cms-admin){ resources :event_listings, :except => [:show] }
 
 So, what happened there?
 
