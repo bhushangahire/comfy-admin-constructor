@@ -33,21 +33,21 @@ class CmsAdminGenerator < Rails::Generators::Base
   end
 
   def create_controller
-    template 'controller.rb', "app/controllers/admin/#{plural_name}_controller.rb"
+    template 'controller.rb', "app/controllers/#{admin_prefix}/#{plural_name}_controller.rb"
   end
 
   def create_form
-    template "views/_form#{template_file_type}", "app/views/admin/#{plural_name}/_form#{template_file_type}"
+    template "views/_form#{template_file_type}", "app/views/#{admin_prefix}/#{plural_name}/_form#{template_file_type}"
   end
 
   def create_views
     %w[edit index new].each do |action|
-      template "views/#{action}#{template_file_type}", "app/views/admin/#{plural_name}/#{action}#{template_file_type}"
+      template "views/#{action}#{template_file_type}", "app/views/#{admin_prefix}/#{plural_name}/#{action}#{template_file_type}"
     end
   end
 
   def create_route
-    namespaces = ["admin", class_name.underscore.downcase.pluralize]
+    namespaces = [admin_prefix, class_name.underscore.downcase.pluralize]
     resource = namespaces.pop
     route namespaces.reverse.inject("resources :#{resource}, :except => [:show]") { |acc, namespace|
       "namespace(:#{namespace}){ #{acc} }"
@@ -55,21 +55,21 @@ class CmsAdminGenerator < Rails::Generators::Base
   end
 
   def create_nav_template_if_needed
-    if !File.exist? destination_path("app/views/admin/_navigation#{template_file_type}")
-      template "partials/_navigation#{template_file_type}", "app/views/admin/_navigation#{template_file_type}"
+    if !File.exist? destination_path("app/views/#{admin_prefix}/_navigation#{template_file_type}")
+      template "partials/_navigation#{template_file_type}", "app/views/#{admin_prefix}/_navigation#{template_file_type}"
     end
   end
 
   def append_to_nav_template
     if haml_present?
-      append = "\n%li= link_to '#{class_name.underscore.humanize.downcase.titleize.pluralize}', admin_#{class_name.underscore.downcase.pluralize}_path\n"
+      append = "\n%li= link_to '#{class_name.underscore.humanize.downcase.titleize.pluralize}', #{admin_prefix}_#{class_name.underscore.downcase.pluralize}_path\n"
     else
-      append = "\n<li><%= link_to '#{class_name.underscore.humanize.downcase.titleize.pluralize}', admin_#{class_name.underscore.downcase.pluralize}_path %></li>"
+      append = "\n<li><%= link_to '#{class_name.underscore.humanize.downcase.titleize.pluralize}', ${admin_prefix}_#{class_name.underscore.downcase.pluralize}_path %></li>"
     end
-    File.open(destination_path("app/views/admin/_navigation#{template_file_type}"), "a") {|f| f.write(append)}
+    File.open(destination_path("app/views/#{admin_prefix}/_navigation#{template_file_type}"), "a") {|f| f.write(append)}
   end
 
-  private
+private
 
   def model_path
     model_name.underscore
@@ -91,8 +91,6 @@ class CmsAdminGenerator < Rails::Generators::Base
     model_attributes.inspect
   end
 
-  # FIXME: Should be proxied to ActiveRecord::Generators::Base
-  # Implement the required interface for Rails::Generators::Migration.
   def self.next_migration_number(dirname) #:nodoc:
     if ActiveRecord::Base.timestamped_migrations
       Time.now.utc.strftime("%Y%m%d%H%M%S")
@@ -135,6 +133,10 @@ class CmsAdminGenerator < Rails::Generators::Base
     else
       ".html.erb"
     end
+  end
+
+  def admin_prefix
+    ComfortableMexicanSofa.config.admin_route_prefix
   end
 
 end

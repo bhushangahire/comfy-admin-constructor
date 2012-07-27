@@ -18,15 +18,12 @@ Requirements
 
 There are plans to make CAC more flexible in the future, but right now it assumes a few things about your CMS install:
 
-* You access CMS at **/admin** and not /cms-admin
 * You don't store your models in sub-directories
-* Your admin controllers and views are stored in **controllers/admin** and **views/admin**, respectively
-* Your CMS initializer will need to specify a custom navigation template at **/admin/_navigation**
+* Your CMS initializer specifies a custom navigation template at **/admin/_navigation**
 
-Planned Features
+Upcoming Features
 ----------------
 
-* More flexibility in where/how things are created
 * Basic passing tests
 
 Quick Start Guide
@@ -61,6 +58,7 @@ CAC will automatically generate a bunch of files for us:
 
 So, what happened there?
 
+* CAC checked which admin_prefix we are using in CMS. (Defaults to **cms-admin**)
 * The EventListing model was generated
 * A migration was generated to create the necessary table for our database (Note: Migrations are **never** run automatically. That's on you.)
 * A controller, complete with ActiveRecord rescues, success/failure flash messages, and more.
