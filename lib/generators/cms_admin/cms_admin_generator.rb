@@ -46,6 +46,10 @@ class CmsAdminGenerator < Rails::Generators::Base
     end
   end
 
+  def create_functional_test
+    template 'tests/functional/controller_test.rb', "test/function/#{plural_name}_controller_test.rb"
+  end
+
   def create_route
     namespaces = [admin_prefix, class_name.underscore.downcase.pluralize]
     resource = namespaces.pop
