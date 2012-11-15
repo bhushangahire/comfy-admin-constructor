@@ -47,10 +47,10 @@ class CmsAdminGenerator < Rails::Generators::Base
   end
 
   def create_route
-    namespaces = [admin_prefix.underscore, class_name.underscore.downcase.pluralize]
+    namespaces = [admin_prefix, class_name.underscore.downcase.pluralize]
     resource = namespaces.pop
     route namespaces.reverse.inject("resources :#{resource}, :except => [:show]") { |acc, namespace|
-      "namespace(:#{namespace}){ #{acc} }"
+      "namespace(:#{namespace.underscore}, :path => '#{namespace}'){#{acc}}"
     }
   end
 
