@@ -36,7 +36,7 @@ class <%= admin_prefix.underscore.camelize %>::<%= plural_class_name %>Controlle
     end
     assert_response :success
     assert_template 'new'
-#   end
+  end
 
 #   def test_edit
 #     get :edit, :id => employees(:one)
