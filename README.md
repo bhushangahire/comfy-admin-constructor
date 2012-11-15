@@ -24,7 +24,8 @@ There are plans to make CAC more flexible in the future, but right now it assume
 Upcoming Features
 ----------------
 
-* Basic passing tests
+* Basic, passing tests will be generated for you
+* The ability to force rake db:migrate, instead of having to run it manually
 
 Quick Start Guide
 -----------------
