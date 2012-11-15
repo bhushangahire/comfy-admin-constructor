@@ -1,4 +1,4 @@
-class Admin::<%= plural_class_name %>Controller < CmsAdmin::BaseController
+class <%= admin_prefix.underscore.camelize %>::<%= plural_class_name %>Controller < CmsAdmin::BaseController
 
   before_filter :load_<%= class_name.underscore.downcase %>, :except => [ :index, :new, :create ]
   before_filter :build_<%= class_name.underscore.downcase %>, :only => [ :new, :create ]

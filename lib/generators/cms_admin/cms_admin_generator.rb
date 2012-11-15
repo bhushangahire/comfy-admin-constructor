@@ -33,21 +33,21 @@ class CmsAdminGenerator < Rails::Generators::Base
   end
 
   def create_controller
-    template 'controller.rb', "app/controllers/#{admin_prefix}/#{plural_name}_controller.rb"
+    template 'controller.rb', "app/controllers/#{admin_prefix.underscore}/#{plural_name}_controller.rb"
   end
 
   def create_form
-    template "views/_form#{template_file_type}", "app/views/#{admin_prefix}/#{plural_name}/_form#{template_file_type}"
+    template "views/_form#{template_file_type}", "app/views/#{admin_prefix.underscore}/#{plural_name}/_form#{template_file_type}"
   end
 
   def create_views
     %w[edit index new].each do |action|
-      template "views/#{action}#{template_file_type}", "app/views/#{admin_prefix}/#{plural_name}/#{action}#{template_file_type}"
+      template "views/#{action}#{template_file_type}", "app/views/#{admin_prefix.underscore}/#{plural_name}/#{action}#{template_file_type}"
     end
   end
 
   def create_route
-    namespaces = [admin_prefix, class_name.underscore.downcase.pluralize]
+    namespaces = [admin_prefix.underscore, class_name.underscore.downcase.pluralize]
     resource = namespaces.pop
     route namespaces.reverse.inject("resources :#{resource}, :except => [:show]") { |acc, namespace|
       "namespace(:#{namespace}){ #{acc} }"
@@ -62,9 +62,9 @@ class CmsAdminGenerator < Rails::Generators::Base
 
   def append_to_nav_template
     if haml_present?
-      append = "\n%li= link_to '#{class_name.underscore.humanize.downcase.titleize.pluralize}', #{admin_prefix}_#{class_name.underscore.downcase.pluralize}_path\n"
+      append = "\n%li= link_to '#{class_name.underscore.humanize.downcase.titleize.pluralize}', #{admin_prefix.underscore}_#{class_name.underscore.downcase.pluralize}_path\n"
     else
-      append = "\n<li><%= link_to '#{class_name.underscore.humanize.downcase.titleize.pluralize}', ${admin_prefix}_#{class_name.underscore.downcase.pluralize}_path %></li>"
+      append = "\n<li><%= link_to '#{class_name.underscore.humanize.downcase.titleize.pluralize}', #{admin_prefix.underscore}_#{class_name.underscore.downcase.pluralize}_path %></li>"
     end
     File.open(destination_path("app/views/#{admin_prefix}/_navigation#{template_file_type}"), "a") {|f| f.write(append)}
   end

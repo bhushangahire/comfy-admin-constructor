@@ -1,4 +1,4 @@
-= link_to "New <%= class_name.underscore.humanize.downcase.titleize %>", new_admin_<%= class_name.underscore.downcase %>_path, :class => 'big button'
+= link_to "New <%= class_name.underscore.humanize.downcase.titleize %>", new_<%= admin_prefix.underscore.downcase %>_<%= class_name.underscore.downcase %>_path, :class => 'big button'
 
 %h1 <%= class_name.underscore.humanize.downcase.titleize.pluralize %>
 
