@@ -1,7 +1,7 @@
 module Comfy
   module Admin
     module Constructor
-      VERSION = "0.4.5"
+      VERSION = "1.0.0"
     end
   end
 end

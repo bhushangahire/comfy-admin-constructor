@@ -69,6 +69,11 @@ class CmsAdminGenerator < Rails::Generators::Base
     File.open(destination_path("app/views/#{admin_prefix}/_navigation#{template_file_type}"), "a") {|f| f.write(append)}
   end
 
+  def create_tests
+    # Functional
+    template "tests/functional/controller_test.rb", "test/functional/#{admin_prefix.underscore}/#{plural_name}_test.rb"
+  end
+
 private
 
   def model_path
