@@ -8,8 +8,8 @@ class CmsAdminGenerator < Rails::Generators::Base
   source_root File.expand_path('../templates', __FILE__)
 
   argument :model_name, :type => :string, :required => true
+  argument :do_migration, :type => :string, :required => true
   argument :args_for_c_m, :type => :array, :required => true
-  argument :do_migration, :type => :string, :required => false
 
   def initialize(*args, &block)
     super
@@ -76,7 +76,7 @@ class CmsAdminGenerator < Rails::Generators::Base
 
   def do_migration_if_needed
     if @do_migration == "migrate"
-      exec {rake db:migrate}
+      exec "rake db:migrate"
     end
   end
 

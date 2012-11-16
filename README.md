@@ -25,7 +25,6 @@ Upcoming Features
 ----------------
 
 * Basic, passing tests will be generated for you
-* The ability to force rake db:migrate, instead of having to run it manually
 
 Quick Start Guide
 -----------------
@@ -61,11 +60,15 @@ So, what happened there?
 
 * CAC checked which admin_prefix we are using in CMS. (Defaults to **cms-admin**)
 * The EventListing model was generated
-* A migration was generated to create the necessary table for our database (Note: Migrations are **never** run automatically. That's on you.)
+* A migration was generated to create the necessary table for our database.
 * A controller, complete with ActiveRecord rescues, success/failure flash messages, and more.
 * Views for all the operations we'll need, along with a form. (Uses HAML if available, ERB if not)
 * Added a new route
 * Appended a new link to the navigation template
+
+If you'd like the generated migration to be run automatically (along with any other pending migrations), simply include _migrate_ on the command line. Like so:
+
+      rails g cms_admin EventListing migrate title:string starts_at:datetime ends_at:datetime description:text location:string
 
 That's it! CAC gives you all the basics. If you need to do something a little more complicated, it's easy to make any changes you like.
 
