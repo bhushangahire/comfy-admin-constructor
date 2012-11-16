@@ -9,6 +9,7 @@ class CmsAdminGenerator < Rails::Generators::Base
 
   argument :model_name, :type => :string, :required => true
   argument :args_for_c_m, :type => :array, :required => true
+  argument :do_migration, :type => :string, :required => false
 
   def initialize(*args, &block)
     super
@@ -22,6 +23,10 @@ class CmsAdminGenerator < Rails::Generators::Base
     end
 
     @model_attributes.uniq!
+
+    if do_migration == "migrate"
+      @do_migration = "migrate"
+    end
   end
 
   def create_model
@@ -67,6 +72,12 @@ class CmsAdminGenerator < Rails::Generators::Base
       append = "\n<li><%= link_to '#{class_name.underscore.humanize.downcase.titleize.pluralize}', #{admin_prefix.underscore}_#{class_name.underscore.downcase.pluralize}_path %></li>"
     end
     File.open(destination_path("app/views/#{admin_prefix}/_navigation#{template_file_type}"), "a") {|f| f.write(append)}
+  end
+
+  def do_migration_if_needed
+    if @do_migration == "migrate"
+      exec {rake db:migrate}
+    end
   end
 
 private
