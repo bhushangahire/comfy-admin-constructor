@@ -38,7 +38,7 @@ class CmsAdminGenerator < Rails::Generators::Base
   end
 
   def create_controller
-    template 'controller.rb', "app/controllers/#{admin_prefix}/#{plural_name}_controller.rb"
+    template 'controller.rb', "app/controllers/#{admin_prefix.underscore}/#{plural_name}_controller.rb"
   end
 
   def create_form
