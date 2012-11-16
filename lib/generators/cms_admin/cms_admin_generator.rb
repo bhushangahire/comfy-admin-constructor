@@ -42,12 +42,12 @@ class CmsAdminGenerator < Rails::Generators::Base
   end
 
   def create_form
-    template "views/_form#{template_file_type}", "app/views/#{admin_prefix}/#{plural_name}/_form#{template_file_type}"
+    template "views/_form#{template_file_type}", "app/views/#{admin_prefix.underscore}/#{plural_name}/_form#{template_file_type}"
   end
 
   def create_views
     %w[edit index new].each do |action|
-      template "views/#{action}#{template_file_type}", "app/views/#{admin_prefix}/#{plural_name}/#{action}#{template_file_type}"
+      template "views/#{action}#{template_file_type}", "app/views/#{admin_prefix.underscore}/#{plural_name}/#{action}#{template_file_type}"
     end
   end
 
