@@ -1,4 +1,4 @@
-# ComfyAdminConstructor
+# ComfyAdminConstructor [![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 
 **ComfyAdminConstructor** allows you to quickly and easily build basic admin interfaces in [ComfortableMexicanSofa](https://github.com/comfy/comfortable-mexican-sofa).
 
